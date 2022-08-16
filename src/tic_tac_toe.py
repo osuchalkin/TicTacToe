@@ -1,7 +1,9 @@
 import sys
 from time import sleep
-import pygame
 import random
+
+import pygame
+
 from settings import Settings
 from grid import Grid
 
@@ -58,11 +60,9 @@ class TicTacToe:
                 if self.turn == 'player':
                     mouse_pos = pygame.mouse.get_pos()
                     self.player_move(mouse_pos)
-                else:
-                    pass
 
     def player_move(self, mouse_pos):
-        # переводим координаты экрана в координаты сетки. Ход игрока. Передача хода компьютеру
+        """ переводим координаты экрана в координаты сетки. Ход игрока. Передача хода компьютеру """
         x, y = mouse_pos
         column = int(x // (self.settings.width + self.settings.margin))
         row = int(y // (self.settings.height + self.settings.margin))
@@ -116,7 +116,7 @@ class TicTacToe:
                 return True
 
     def is_board_full(self):
-        # Возвращает True, если клетка на игровом поле занята. В противном случае, возвращает False.
+        """ Возвращает True, если клетка на игровом поле занята. В противном случае, возвращает False. """
         for column in range(self.settings.column):
             for row in range(self.settings.row):
                 if self.is_space_free(column, row):
@@ -124,7 +124,7 @@ class TicTacToe:
         return True
 
     def is_space_free(self, column, row):
-        # Возвращает True, если сделан ход в свободную клетку.
+        """ Возвращает True, если сделан ход в свободную клетку. """
         return self.board.grid[column][row] == ''
 
     def art_int(self):

@@ -36,7 +36,7 @@ class Grid:
                     pygame.draw.line(self.screen, self.settings.cross_color, (x - 30, y + 30), (x + 30, y - 30), 7)
 
     def winner_line(self, line_win):
-        # линия победы
+        """ рисует линию победы """
         coord_1 = line_win[0]
         coord_2 = line_win[2]
         x_1 = (self.settings.margin + self.settings.width) * coord_1[1] + \
